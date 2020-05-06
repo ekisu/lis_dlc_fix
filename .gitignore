@@ -1,1 +1,5 @@
 steamworks_*
+*.exp
+*.lib
+*.obj
+*.dll

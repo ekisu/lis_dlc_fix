@@ -98,6 +98,9 @@ extern "C" {
 
     /* Get current time */
     time_t t = time(NULL);
+
+    // shut up msvc
+    #pragma warning(suppress: 4996)
     struct tm *lt = localtime(&t);
 
     /* Log to stderr */

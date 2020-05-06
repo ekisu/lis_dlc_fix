@@ -12,7 +12,9 @@ R api_call_helper(const char* name, Targs... args) {
         handle = LoadLibrary("steam_api_old.dll");
     }
 
+    #pragma warning(suppress: 4191)
     R (*f)(Targs...) = reinterpret_cast<R (*)(Targs...)>(GetProcAddress(handle, name));
+    
     return f(args...);
 }
 

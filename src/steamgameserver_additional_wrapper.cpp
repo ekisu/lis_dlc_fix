@@ -5,7 +5,7 @@ uint64 SteamGameServer_GetSteamID() {
 }
 
 bool SteamGameServer_Init( uint32 unIP, uint16 usSteamPort, uint16 usGamePort, uint16 usQueryPort, EServerMode eServerMode, const char *pchVersionString ) {
-    return api_call_helper<uint64>("SteamGameServer_Init", unIP, usSteamPort, usGamePort);
+    return api_call_helper<bool>("SteamGameServer_Init", unIP, usSteamPort, usGamePort, usQueryPort, eServerMode, pchVersionString);
 }
 
 void API_CALLTYPE SteamGameServer_RunCallbacks() {

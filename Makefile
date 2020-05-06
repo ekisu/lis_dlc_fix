@@ -6,12 +6,14 @@ SOURCES += src/steamapps_override.cpp
 SOURCES += src/steamgameserver_additional_wrapper.cpp
 
 CC := cl.exe
-FLAGS := user32.lib /Isteamworks_sdk\public\steam
+CCFLAGS := user32.lib /Isteamworks_sdk\public\steam /W4 /WX
+
+LDFLAGS := /WX
 
 all: steam_api.dll
 
 steam_api.dll: $(TMPDIR) $(SOURCES)
-	$(CC) /LD $^ $(FLAGS) /link /out:$@
+	$(CC) /LD $^ $(CCFLAGS) /link $(LDFLAGS) /out:$@
 
 clean:
 	cmd /C del *.obj *.exp *.lib steam_api.dll
